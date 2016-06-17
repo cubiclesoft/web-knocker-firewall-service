@@ -23,4 +23,4 @@ More Information
 
 Documentation, examples, and official downloads of this project sit on the Barebones CMS website:
 
-http://barebonescms.com/documentation/cloud_backup/
+http://barebonescms.com/documentation/web_knocker_firewall_service/
