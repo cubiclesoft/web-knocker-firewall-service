@@ -32,7 +32,7 @@
 
 	echo "----------\n\n";
 	echo "Here are the ports that are currently open on your system (Local Address column):\n\n";
-	system("netstat -plnt");
+	system("netstat -plnt | grep -v 127.0.0.1: | grep -v ::1:");
 	echo "\n\n";
 	echo "Select which ports to protect, one per line (leave empty to move on).  TCP first, then UDP.  Be sure to NOT include your web server port(s) (e.g. 80 and 443) or you'll lock yourself out!\n";
 	$config["tcpprotected"] = array();
