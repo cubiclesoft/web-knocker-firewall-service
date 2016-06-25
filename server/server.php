@@ -335,9 +335,12 @@
 								if (!isset($tracker[$removecmd]) || $tracker[$removecmd] < $ts)  $tracker[$removecmd] = $ts;
 							}
 
-							foreach ($config["recipients"] as $recipient)
+							if (count($added))
 							{
-								mail($recipient, "[" . gethostname() . "] " . (count($added) == 1 ? "Port" : "Ports") . " opened for " . $ipaddr, implode("\r\n", $added) . "\r\n\r\n" . date("l, F j, Y @ g:i a"), "From: " . $recipient);
+								foreach ($config["recipients"] as $recipient)
+								{
+									mail($recipient, "[" . gethostname() . "] " . (count($added) == 1 ? "Port" : "Ports") . " opened for " . $ipaddr, implode("\r\n", $added) . "\r\n\r\n" . date("l, F j, Y @ g:i a"), "From: " . $recipient);
+								}
 							}
 
 							$client->data = json_encode(array("success" => true, "expires" => $ts));
