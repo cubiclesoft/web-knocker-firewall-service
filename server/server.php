@@ -14,10 +14,10 @@
 
 	require_once $rootpath . "/support/wkfs_functions.php";
 
-	if (!function_exists("posix_getpwuid") || !function_exists("posix_geteuid"))  WKFS_DisplayError("Required PHP POSIX function(s) are missing.  The Web Knocker Firewall Service requires Linux and the PHP POSIX extension to run the setup program.");
+	if (!function_exists("posix_getpwuid") || !function_exists("posix_geteuid"))  WKFS_DisplayError("Required PHP POSIX function(s) are missing.  The Web Knocker Firewall Service requires Linux and the PHP POSIX extension to run the server.");
 
 	$uid = posix_geteuid();
-	if ($uid !== 0)  WKFS_DisplayError("The Web Knocker Firewall Service installation program must be run as the 'root' user (UID = 0).");
+	if ($uid !== 0)  WKFS_DisplayError("The Web Knocker Firewall Service must be run as the 'root' user (UID = 0).");
 
 	// Load configuration.
 	require_once $rootpath . "/config.php";
