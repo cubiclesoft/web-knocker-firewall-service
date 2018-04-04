@@ -198,7 +198,7 @@
 				)
 			);
 
-			$result = $web->Process($this->config["url"], "auto", $options);
+			$result = $web->Process($this->config["url"], $options);
 
 			if (!$result["success"])  return $result;
 
