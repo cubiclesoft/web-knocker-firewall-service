@@ -5,6 +5,8 @@ A web-based service written in pure PHP for Linux servers that opens protected T
 
 This software is for Linux system administrators who are serious about network security.  Web Knocker Firewall Service (WKFS) takes your [elegant iptables rules](http://cubicspot.blogspot.com/2016/06/elegant-iptables-rules-for-your-linux.html) to a whole different level without introducing weaknesses in the IP stack.  WKFS has been running successfully in CubicleSoft production environments since June 2016 without any issues.
 
+[![Donate](https://cubiclesoft.com/res/donate-shield.png)](https://cubiclesoft.com/donate/)
+
 Features
 --------
 
