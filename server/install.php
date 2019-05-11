@@ -210,7 +210,7 @@
 	echo "\n\n";
 
 	echo "----------\n\n";
-	echo "Past this point be dragons!  The server will be installed and started, which will modify the firewall.  Depending on what ports are being protected, your connection to this system may drop.\n\n";
+	echo "Past this point be dragons!  The server will be installed and started, which will modify the firewall.  Depending on what ports are being protected, your connection to this system may drop and the system may be inaccessible until the client side is set up.\n\n";
 	echo "Proceed (Y/N):  ";
 	$proceed = (substr(strtoupper(trim(fgets(STDIN))), 0, 1) == "Y");
 
