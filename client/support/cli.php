@@ -207,6 +207,7 @@
 				else
 				{
 					echo $prompt;
+					fflush(STDOUT);
 					$line = fgets(STDIN);
 					if ($line === false || ($line === "" && feof(STDIN)))  exit();
 
@@ -347,6 +348,35 @@
 			}
 
 			return $result;
+		}
+
+		// Outputs a JSON array (useful for captured output).
+		public static function DisplayResult($result, $exit = true)
+		{
+			if (is_array($result))  echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n";
+			else  echo $result . "\n";
+
+			if ($exit)  exit();
+		}
+
+		// Useful for reparsing remaining parameters as new arguments.
+		public static function ReinitArgs(&$args, $newargs)
+		{
+			// Process the parameters.
+			$options = array(
+				"shortmap" => array(
+					"?" => "help"
+				),
+				"rules" => array(
+				)
+			);
+
+			foreach ($newargs as $arg)  $options["rules"][$arg] = array("arg" => true, "multiple" => true);
+			$options["rules"]["help"] = array("arg" => false);
+
+			$args = self::ParseCommandLine($options, array_merge(array(""), $args["params"]));
+
+			if (isset($args["opts"]["help"]))  self::DisplayResult(array("success" => true, "options" => array_keys($options["rules"])));
 		}
 
 		// Tracks messages for a command-line interface app.
